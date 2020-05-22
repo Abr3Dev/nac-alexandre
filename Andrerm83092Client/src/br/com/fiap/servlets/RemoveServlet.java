@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.fiap.application.Remocao;
 
-
 @WebServlet(urlPatterns = "/deletar")
 public class RemoveServlet extends HttpServlet{
 

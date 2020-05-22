@@ -13,27 +13,28 @@ import br.com.fiap.application.Atualizar;
 import br.com.fiap.application.Listagem;
 import br.com.fiap.to.ProdutoTO;
 
-@WebServlet("/atualizar")
+@WebServlet(urlPatterns = "/atualizar")
 public class AtualizaServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest req, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		ProdutoTO produto = new ProdutoTO();
 		Atualizar atualizar = new Atualizar();
 
-		produto.setCodigo(5);
-		produto.setTitulo("Caixa de Somasasdadsadsadsasdads-BT");
-		produto.setPreco(515.99);
-		produto.setQuantidade(40);
+		produto.setCodigo(Integer.parseInt(req.getParameter("codigo")));
+		produto.setTitulo(req.getParameter("titulo"));
+		produto.setPreco(Double.parseDouble(req.getParameter("preco")));
+		produto.setQuantidade(Integer.parseInt(req.getParameter("quantidade")));
 
 		
 		String link = atualizar.putService(produto) == 200 ? "sucesso.jsp" : "falha.jsp";
 		
 		RequestDispatcher rd;
-		rd = request.getRequestDispatcher(link);
-		rd.forward(request, response);
+		rd = req.getRequestDispatcher(link);
+		rd.forward(req, response);
 
 	}
 

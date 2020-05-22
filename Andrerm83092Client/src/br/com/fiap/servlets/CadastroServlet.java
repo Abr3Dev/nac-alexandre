@@ -23,10 +23,10 @@ public class CadastroServlet extends HttpServlet{
 		ProdutoTO produto = new ProdutoTO();
 		Cadastro cadastro = new Cadastro();
 		
-		produto.setCodigo(6);
-		produto.setTitulo("Caixa de Som");
-		produto.setPreco(350.90);
-		produto.setQuantidade(20);
+		produto.setCodigo(Integer.parseInt(req.getParameter("codigo")));
+		produto.setTitulo(req.getParameter("titulo"));
+		produto.setPreco(Double.parseDouble(req.getParameter("preco")));
+		produto.setQuantidade(Integer.parseInt(req.getParameter("quantidade")));
 		
 		String link = cadastro.postService(produto) == 201 ? "sucesso.jsp" : "falha.jsp";
 		
