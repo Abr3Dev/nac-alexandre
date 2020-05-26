@@ -1,6 +1,7 @@
 package br.com.fiap.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.fiap.application.Cadastro;
+import br.com.fiap.application.Listagem;
 import br.com.fiap.to.ProdutoTO;
 
 @WebServlet(urlPatterns = "/cadastrar")

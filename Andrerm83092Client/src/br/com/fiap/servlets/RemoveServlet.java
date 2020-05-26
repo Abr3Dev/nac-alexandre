@@ -31,7 +31,6 @@ public class RemoveServlet extends HttpServlet{
 		
 		RequestDispatcher rd;
 		rd = req.getRequestDispatcher(link);
-		rd.forward(req, resp);
-		
+		rd.forward(req, resp);	
 	}
 }
