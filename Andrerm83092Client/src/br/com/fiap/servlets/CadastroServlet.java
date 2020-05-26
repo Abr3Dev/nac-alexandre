@@ -31,6 +31,8 @@ public class CadastroServlet extends HttpServlet{
 		String link = cadastro.postService(produto) == 201 ? "sucesso.jsp" : "falha.jsp";
 		
 		RequestDispatcher rd;
+		req.setAttribute("sucesso", "Cadastro concluido com sucesso."); 
+		req.setAttribute("falha", "Falha no cadastro, tente novamente.");
 		rd = req.getRequestDispatcher(link);
 		rd.forward(req, resp);
 	}

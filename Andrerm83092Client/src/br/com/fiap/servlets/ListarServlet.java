@@ -2,6 +2,7 @@ package br.com.fiap.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,13 +21,10 @@ public class ListarServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Listagem listagem = new Listagem();
 		
-		for (ProdutoTO p : listagem.getService()) {
-			System.out.println("__________________________");
-			System.out.println("COD   : " + p.getCodigo());
-			System.out.println("NOME  : " + p.getTitulo());
-			System.out.println("PRE�O : " + p.getPreco());
-			System.out.println("QUANTIDADE : " + p.getQuantidade());
-			System.out.println("__________________________");
-		}
+		req.setAttribute("lista", "Lista de produtos.");
+		req.setAttribute("listagem", listagem.getService());
+		
+		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+		rd.forward(req, resp);
 	}
 }

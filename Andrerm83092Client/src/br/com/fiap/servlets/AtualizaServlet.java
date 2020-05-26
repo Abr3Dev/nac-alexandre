@@ -33,6 +33,8 @@ public class AtualizaServlet extends HttpServlet {
 		String link = atualizar.putService(produto) == 200 ? "sucesso.jsp" : "falha.jsp";
 		
 		RequestDispatcher rd;
+		req.setAttribute("sucesso", "Atualização concluida com sucesso."); 
+		req.setAttribute("falha", "Falha ao atualizar, tente novamente.");
 		rd = req.getRequestDispatcher(link);
 		rd.forward(req, response);
 

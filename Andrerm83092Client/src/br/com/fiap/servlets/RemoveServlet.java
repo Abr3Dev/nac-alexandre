@@ -22,9 +22,12 @@ public class RemoveServlet extends HttpServlet{
 		
 		Remocao remocao = new Remocao();
 		
-		int remove = remocao.deleteService(5);
+		int remove = remocao.deleteService(Integer.parseInt(req.getParameter("codigo")));
 		
 		String link = remove == 204 ? "sucesso.jsp" : "falha.jsp";
+		
+		req.setAttribute("sucesso", "Produto deletado com sucesso."); 
+		req.setAttribute("falha", "Falha ao deletar o produto, tente novamente.");
 		
 		RequestDispatcher rd;
 		rd = req.getRequestDispatcher(link);

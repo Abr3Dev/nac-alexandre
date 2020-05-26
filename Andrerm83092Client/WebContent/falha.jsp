@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUCESSO</title>
+<title>FALHA</title>
 </head>
 <body>
-	<p>${sucesso }</p>
+	<p>${falha }</p>
+	
 	<a href="index.jsp">Voltar para a Home.</a>
 </body>
 </html>

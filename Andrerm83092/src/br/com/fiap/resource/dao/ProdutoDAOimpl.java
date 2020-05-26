@@ -84,8 +84,9 @@ public class ProdutoDAOimpl implements ProdutoDAO{
 		return false;
 	}
 		
-	public void delete(int cod) {
-			listaProduto.remove((cod-1));
+	public void delete(int cod) {	
+		ProdutoTO p = select(cod);
+		listaProduto.remove(p);
 	}
 
 }

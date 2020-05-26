@@ -1,0 +1,52 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{    
+    background-image: url("background1.png");
+}
+
+.form-mold{
+    width: 55%;
+    align-items: center;
+    text-align: center;
+    margin: 10% auto;
+    background-color:#00BACA;
+    opacity:0.75;
+    box-shadow: 0px 0px 15px #c05858;
+    padding: 1%;
+}
+
+.form-mold label {
+    margin-right: 2%;
+    cursor: pointer;
+    font-weight: bold
+}
+
+.form-mold label:hover {
+    color: #c05858;
+}
+
+.form-mold form input{
+    width: 55%;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 1%;
+}
+
+.form-mold form label{
+    margin: 21%;
+}
+
+.form-mold form button{
+    background: #FBF2D7;
+    padding: 1%;
+    width: 12%;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+
+.form-mold form button:Hover{
+    background: #c05858;
+}
