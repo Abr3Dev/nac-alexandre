@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.fiap.application.Remocao;
+import br.com.fiap.bo.ProdutoBO;
 
 @WebServlet(urlPatterns = "/deletar")
 public class RemoveServlet extends HttpServlet{
@@ -20,9 +20,9 @@ public class RemoveServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		Remocao remocao = new Remocao();
+		ProdutoBO bo = new ProdutoBO();
 		
-		int remove = remocao.deleteService(Integer.parseInt(req.getParameter("codigo")));
+		int remove = bo.deleteService(Integer.parseInt(req.getParameter("codigo")));
 		
 		String link = remove == 204 ? "sucesso.jsp" : "falha.jsp";
 		

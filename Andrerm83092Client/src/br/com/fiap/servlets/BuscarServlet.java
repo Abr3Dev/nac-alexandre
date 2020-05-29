@@ -10,20 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.fiap.bo.ProdutoBO;
+import br.com.fiap.to.ProdutoTO;
 
-@WebServlet(urlPatterns = "/listar")
-public class ListarServlet extends HttpServlet{
-
+@WebServlet(urlPatterns="/buscar")
+public class BuscarServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-
+    
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ProdutoTO produto = new ProdutoTO();
 		ProdutoBO bo = new ProdutoBO();
 		
-		req.setAttribute("lista", "Lista de produtos.");
-		req.setAttribute("listagem", bo.getService());
+		produto.setCodigo(Integer.parseInt(req.getParameter("codigo")));
+		req.setAttribute("busca", bo.getService(produto.getCodigo()));
+		
 		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
 	}
+
 }

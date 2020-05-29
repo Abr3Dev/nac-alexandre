@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>FALHA</title>
+<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-	<p>${falha }</p>
-	
-	<a href="index.jsp">Voltar para a Home.</a>
+	<div class="form-mold">
+		<h1>${falha }</h1>
+		<a href="index.jsp">Voltar para a Home.</a>
+	</div>
 </body>
 </html>

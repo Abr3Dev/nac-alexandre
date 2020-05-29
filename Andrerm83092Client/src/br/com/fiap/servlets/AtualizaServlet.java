@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.fiap.application.Atualizar;
-import br.com.fiap.application.Listagem;
+import br.com.fiap.bo.ProdutoBO;
 import br.com.fiap.to.ProdutoTO;
 
 @WebServlet(urlPatterns = "/atualizar")
@@ -22,7 +21,7 @@ public class AtualizaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		ProdutoTO produto = new ProdutoTO();
-		Atualizar atualizar = new Atualizar();
+		ProdutoBO bo = new ProdutoBO();
 
 		produto.setCodigo(Integer.parseInt(req.getParameter("codigo")));
 		produto.setTitulo(req.getParameter("titulo"));
@@ -30,7 +29,7 @@ public class AtualizaServlet extends HttpServlet {
 		produto.setQuantidade(Integer.parseInt(req.getParameter("quantidade")));
 
 		
-		String link = atualizar.putService(produto) == 200 ? "sucesso.jsp" : "falha.jsp";
+		String link = bo.putService(produto) == 200 ? "sucesso.jsp" : "falha.jsp";
 		
 		RequestDispatcher rd;
 		req.setAttribute("sucesso", "Atualização concluida com sucesso."); 

@@ -12,11 +12,19 @@
 
 	<div class="form-mold">
 		<div>
-			<label onclick="Atualizar()">Atualizar</label> <label
-				onclick="Cadastrar()">Cadastar</label>
+			<label onclick="Buscar()">Buscar</label>
+			<label onclick="Atualizar()">Atualizar</label> 
+			<label onclick="Cadastrar()">Cadastar</label>
 		</div>
 		<br />
-
+	
+		<form action="buscar" method="get" id="form-buscar">
+			<label>Buscar por Código</label> 
+			<input type="number" name="codigo" placeholder="Digite o código do produto" />
+			<br />
+			<button>Enviar</button>
+		</form>
+		
 		<form action="atualizar" method="POST" id="form-atualizar">
 			<label>Atualizar</label> 
 			<input type="number" name="codigo" placeholder="Digite o código do produto" /> 
@@ -52,7 +60,7 @@
 						<td>Deletar</td>
 					</tr>
 					<c:forEach var="itens" items="${listagem }">
-						<tr clas="tbl-content">
+						<tr class="tbl-content">
 							<td>${itens.codigo}</td>
 							<td>${itens.titulo}</td>
 							<td>${itens.preco}</td>
@@ -63,6 +71,30 @@
 								</form></td>
 						</tr>
 					</c:forEach>
+				</table>
+			</c:when>
+		</c:choose>
+		<c:choose>
+			<c:when test="${busca != null}">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr class="title-table">
+						<td>Código</td>
+						<td>Título</td>
+						<td>Preço</td>
+						<td>Quantidade</td>
+						<td>Deletar</td>
+					</tr>
+					<tr class="tbl-content">
+						<td>${busca.codigo}</td>
+						<td>${busca.titulo}</td>
+						<td>${busca.preco}</td>
+						<td>${busca.quantidade}</td>
+						<td><form action="deletar" method="POST" id="form-deletar">
+								<input type="hidden" name="codigo" value="${busca.codigo }" />
+								<button class="style-button">Deletar</button>	
+							</form>
+						</td>
+					</tr>
 				</table>
 			</c:when>
 		</c:choose>
